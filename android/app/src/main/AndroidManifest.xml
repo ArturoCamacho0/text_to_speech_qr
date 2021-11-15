@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.text_qr">
    <application
-        android:label="text_qr"
+        android:label="QR Safe Life"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

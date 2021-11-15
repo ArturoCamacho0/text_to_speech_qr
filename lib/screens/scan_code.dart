@@ -15,7 +15,7 @@ class _ScannerState extends State<Scanner> {
     qrCodeResult = "";
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Escaner de QR a voz"),
+        title: const Text("QR Safe Life"),
       ),
       body: Center(
         child: (qrCodeResult == null) || (qrCodeResult == "")

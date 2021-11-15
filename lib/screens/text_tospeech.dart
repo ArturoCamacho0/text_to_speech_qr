@@ -83,7 +83,7 @@ class _TextSpeechState extends State<TextSpeech> {
     await flutterTts.setLanguage("es-US");
     await flutterTts.setVolume(2);
     await flutterTts.awaitSpeakCompletion(true);
-    await flutterTts.speak(widget.text);
+    await flutterTts.speak("El producto que escaneó fue " + widget.text);
   }
 
   @override
