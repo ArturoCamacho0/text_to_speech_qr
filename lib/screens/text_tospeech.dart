@@ -81,6 +81,7 @@ class _TextSpeechState extends State<TextSpeech> {
 
   Future _speak() async {
     await flutterTts.setLanguage("es-US");
+    await flutterTts.setVolume(2);
     await flutterTts.awaitSpeakCompletion(true);
     await flutterTts.speak(widget.text);
   }
@@ -89,21 +90,18 @@ class _TextSpeechState extends State<TextSpeech> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.of(context).pop(),
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: const Text('Texto a voz'),
           ),
-          title: const Text('Texto a voz'),
-        ),
-        body: Center(
-          child: Text(widget.text,
-              style: const TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w900
-              )),
-        )
-      ),
+          body: Center(
+            child: Text(widget.text,
+                style: const TextStyle(
+                    fontSize: 20.0, fontWeight: FontWeight.w900)),
+          )),
     );
   }
 }

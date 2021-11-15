@@ -9,7 +9,6 @@ class Scanner extends StatefulWidget {
 
 class _ScannerState extends State<Scanner> {
   late String qrCodeResult = "";
-  bool backCamera = true;
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +38,19 @@ class _ScannerState extends State<Scanner> {
 
   Future<void> _scan() async {
     ScanResult codeSanner = await BarcodeScanner.scan(
-      options: ScanOptions(
-        useCamera: camera,
+      options: const ScanOptions(
+        useCamera: -1,
       ),
     );
     setState(() {
       qrCodeResult = codeSanner.rawContent;
     });
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => TextSpeech(text: qrCodeResult)),
-    );
+    if(qrCodeResult != ""){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => TextSpeech(text: qrCodeResult)),
+      );
+    }
   }
 }
-
-int camera = 1;
